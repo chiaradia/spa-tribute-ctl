@@ -11,18 +11,48 @@ interface TimelineItemProps {
 const TimelineItem = ({ year, title, desc, side }: TimelineItemProps) => (
   <motion.div
     variants={fadeInUp}
-    className={`flex items-center justify-between w-full mb-6 sm:mb-8 md:flex-row ${side === 'left' ? 'md:flex-row-reverse' : ''} flex-col md:flex-row`}
+    className="relative flex items-center w-full mb-6 sm:mb-8"
   >
-    <div className="hidden md:block w-5/12"></div>
-    <div className="z-20 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 bg-amber-600 rounded-full shadow-lg border-2 sm:border-4 border-white mb-4 md:mb-0">
-      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full"></div>
+    {/* Mobile: Single column centered */}
+    <div className="w-full md:hidden flex flex-col items-center">
+      <div className="z-20 flex items-center justify-center w-6 h-6 bg-amber-600 rounded-full shadow-lg border-2 border-white mb-4">
+        <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+      </div>
+      <div className="w-full p-4 bg-white rounded-lg shadow-md border-l-4 border-slate-200 text-left">
+        <span className="text-amber-600 font-bold text-xs tracking-wider">{year}</span>
+        <h3 className="text-base font-bold text-slate-800 mb-1">{title}</h3>
+        <p className="text-slate-600 text-xs">{desc}</p>
+      </div>
     </div>
-    <div className={`w-full md:w-5/12 p-4 sm:p-6 bg-white rounded-lg shadow-md border-l-4 border-slate-200 text-left`}>
-      <span className="text-amber-600 font-bold text-xs sm:text-sm tracking-wider">{year}</span>
-      <h3 className="text-base sm:text-lg font-bold text-slate-800 mb-1 sm:mb-2">{title}</h3>
-      <p className="text-slate-600 text-xs sm:text-sm">{desc}</p>
+
+    {/* Desktop: Alternating left/right layout */}
+    <div className="hidden md:flex items-center justify-between w-full">
+      {side === 'left' ? (
+        <>
+          <div className="w-5/12"></div>
+          <div className="z-20 flex items-center justify-center w-8 h-8 bg-amber-600 rounded-full shadow-lg border-4 border-white shrink-0">
+            <div className="w-2 h-2 bg-white rounded-full"></div>
+          </div>
+          <div className="w-5/12 p-6 bg-white rounded-lg shadow-md border-l-4 border-slate-200 text-right">
+            <span className="text-amber-600 font-bold text-sm tracking-wider">{year}</span>
+            <h3 className="text-lg font-bold text-slate-800 mb-2">{title}</h3>
+            <p className="text-slate-600 text-sm">{desc}</p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="w-5/12 p-6 bg-white rounded-lg shadow-md border-l-4 border-slate-200 text-left">
+            <span className="text-amber-600 font-bold text-sm tracking-wider">{year}</span>
+            <h3 className="text-lg font-bold text-slate-800 mb-2">{title}</h3>
+            <p className="text-slate-600 text-sm">{desc}</p>
+          </div>
+          <div className="z-20 flex items-center justify-center w-8 h-8 bg-amber-600 rounded-full shadow-lg border-4 border-white shrink-0">
+            <div className="w-2 h-2 bg-white rounded-full"></div>
+          </div>
+          <div className="w-5/12"></div>
+        </>
+      )}
     </div>
-    <div className="hidden md:block w-5/12"></div>
   </motion.div>
 );
 

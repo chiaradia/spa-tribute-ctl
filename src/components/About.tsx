@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { Network } from 'lucide-react';
 import { fadeInUp } from '../constants/animations';
+import celsoImage from '../assets/celso.png';
 
 export const About = () => (
   <section className="py-12 sm:py-16 md:py-24 bg-white text-slate-800 w-full overflow-x-hidden">
@@ -42,21 +42,16 @@ export const About = () => (
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="relative h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] bg-slate-100 rounded-lg overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full mt-8 lg:mt-0"
+          className="relative h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] bg-slate-100 rounded-lg overflow-hidden shadow-2xl w-full mt-8 lg:mt-0"
         >
-          {/* Abstract Engineering Placeholder Image */}
-          <div className="absolute inset-0 bg-slate-200 flex flex-col items-center justify-center p-8 text-slate-400">
-            <Network size={64} className="mb-4 text-slate-300" />
-            <span className="uppercase tracking-widest text-sm font-semibold">Engenharia em Ação</span>
-            <div className="mt-8 grid grid-cols-2 gap-4 w-full opacity-30">
-              <div className="h-32 bg-slate-400 rounded"></div>
-              <div className="h-32 bg-slate-300 rounded translate-y-8"></div>
-              <div className="h-32 bg-slate-300 rounded -translate-y-8"></div>
-              <div className="h-32 bg-slate-400 rounded"></div>
-            </div>
-          </div>
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 to-transparent p-8">
-            <p className="text-white font-serif text-lg">"A engenharia é a arte de viabilizar o futuro."</p>
+          {/* Profile Image */}
+          <img 
+            src={celsoImage} 
+            alt="Celso Ternes Leal - Engenheiro Eletricista" 
+            className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent p-6 sm:p-8">
+            <p className="text-white font-serif text-base sm:text-lg">"A engenharia é a arte de viabilizar o futuro."</p>
           </div>
         </motion.div>
       </div>

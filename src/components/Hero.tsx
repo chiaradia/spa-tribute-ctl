@@ -1,9 +1,20 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { fadeInUp } from '../constants/animations';
+import celsoImage from '../assets/celso.png';
 
 export const Hero = () => (
   <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900 text-white w-full">
+    {/* Background Image with Overlay */}
+    <div className="absolute inset-0 w-full h-full">
+      <img 
+        src={celsoImage} 
+        alt="Celso Ternes Leal" 
+        className="w-full h-full object-cover object-center opacity-10"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/60"></div>
+    </div>
+    
     {/* Abstract Background representing grid/connections */}
     <div className="absolute inset-0 opacity-20 w-full h-full">
       <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -13,7 +24,6 @@ export const Hero = () => (
         <path d="M50 0 L50 100" stroke="white" strokeWidth="0.2" />
         <path d="M0 50 L100 50" stroke="white" strokeWidth="0.2" />
       </svg>
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/50"></div>
     </div>
 
     <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center max-w-4xl w-full">

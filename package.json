@@ -1,7 +1,9 @@
 {
-  "name": "vite-react",
+  "name": "spa-tribute-ctl",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A professional tribute website celebrating the career and contributions of Celso Ternes Leal",
+  "author": "",
   "type": "module",
   "scripts": {
     "dev": "vite",

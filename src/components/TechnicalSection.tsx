@@ -26,47 +26,48 @@ export const TechnicalSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-50 text-slate-800">
-      <div className="container mx-auto px-6">
+    <section className="py-12 sm:py-16 md:py-24 bg-slate-50 text-slate-800 w-full overflow-x-hidden">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl w-full">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-4 text-amber-600">
-            <Briefcase size={24} />
-            <span className="uppercase tracking-widest font-bold text-sm">Competência Técnica</span>
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 text-amber-600">
+            <Briefcase size={20} className="sm:w-6 sm:h-6" />
+            <span className="uppercase tracking-widest font-bold text-xs sm:text-sm">Competência Técnica</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-4 sm:mb-6 px-2">
             A Vanguarda das Redes Subterrâneas
           </h2>
-          <p className="max-w-3xl mx-auto text-lg text-slate-600">
+          <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-600 px-2">
             Para o engenheiro Celso Ternes Leal, a rede subterrânea nunca foi apenas uma questão de estética urbana; tratava-se de uma <strong>mudança de paradigma na confiabilidade e segurança</strong> do sistema elétrico.
           </p>
         </motion.div>
 
         {/* Tabs Navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border ${
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border whitespace-nowrap ${
                 activeTab === tab.id
                   ? 'bg-slate-900 text-white border-slate-900 shadow-lg'
                   : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100'
               }`}
             >
               {tab.icon}
-              {tab.label}
+              <span className="hidden sm:inline">{tab.label}</span>
+              <span className="sm:hidden">{tab.label.split(' ')[0]}</span>
             </button>
           ))}
         </div>
 
         {/* Tab Content */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 min-h-[400px]">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 lg:p-12 min-h-[300px] sm:min-h-[400px] w-full">
           <AnimatePresence mode='wait'>
             {activeTab === 'case' && (
               <motion.div
@@ -75,11 +76,11 @@ export const TechnicalSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.3 }}
-                className="grid md:grid-cols-2 gap-12"
+                className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12"
               >
                 <div>
-                  <h3 className="text-2xl font-serif font-bold mb-4 text-slate-900">O Case "Via Gastronômica" (Joinville)</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold mb-3 sm:mb-4 text-slate-900">O Case "Via Gastronômica" (Joinville)</h3>
+                  <p className="text-sm sm:text-base text-slate-600 mb-4 sm:mb-6 leading-relaxed">
                     O projeto da Rua Visconde de Taunay não foi uma simples obra de enterramento de cabos; foi um projeto piloto de <strong>Transferência Automática de Fontes</strong>. Leal e sua equipe implementaram um sistema em anel aberto operado radialmente.
                   </p>
                   <ul className="space-y-4">
@@ -99,12 +100,12 @@ export const TechnicalSection = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="bg-slate-50 rounded-xl p-8 border border-slate-100 flex flex-col justify-center">
-                  <h4 className="text-lg font-bold mb-4 text-slate-700">O Desafio Técnico</h4>
-                  <p className="text-slate-600 italic mb-6">"A região demandava alta continuidade de serviço. Uma falha convencional (apagão) causaria prejuízos imediatos ao comércio local."</p>
-                  <div className="w-full h-px bg-slate-200 mb-6"></div>
-                  <h4 className="text-lg font-bold mb-4 text-slate-700">A Solução</h4>
-                  <p className="text-slate-600">Uso de chaves seccionadoras subterrâneas de 4 vias com comando inteligente.</p>
+                <div className="bg-slate-50 rounded-xl p-4 sm:p-6 md:p-8 border border-slate-100 flex flex-col justify-center mt-6 md:mt-0">
+                  <h4 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-slate-700">O Desafio Técnico</h4>
+                  <p className="text-sm sm:text-base text-slate-600 italic mb-4 sm:mb-6">"A região demandava alta continuidade de serviço. Uma falha convencional (apagão) causaria prejuízos imediatos ao comércio local."</p>
+                  <div className="w-full h-px bg-slate-200 mb-4 sm:mb-6"></div>
+                  <h4 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-slate-700">A Solução</h4>
+                  <p className="text-sm sm:text-base text-slate-600">Uso de chaves seccionadoras subterrâneas de 4 vias com comando inteligente.</p>
                 </div>
               </motion.div>
             )}
@@ -117,11 +118,11 @@ export const TechnicalSection = () => {
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-2xl font-serif font-bold mb-6 text-slate-900">Inovação em Materiais e Padronização Civil</h3>
-                <p className="text-slate-600 mb-8 max-w-3xl">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold mb-4 sm:mb-6 text-slate-900">Inovação em Materiais e Padronização Civil</h3>
+                <p className="text-sm sm:text-base text-slate-600 mb-6 sm:mb-8 max-w-3xl">
                   Celso foi um defensor ferrenho da padronização para reduzir o mito de que "rede subterrânea é cara demais".
                 </p>
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   <div className="p-6 border border-slate-200 rounded-xl hover:shadow-md transition-shadow">
                     <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-700 mb-4">
                       <HardHat size={24} />
@@ -154,10 +155,10 @@ export const TechnicalSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.3 }}
-                className="grid md:grid-cols-2 gap-12 items-center"
+                className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center"
               >
                 <div>
-                  <h3 className="text-2xl font-serif font-bold mb-4 text-slate-900">Filosofia de Projeto e Normas</h3>
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold mb-4 text-slate-900">Filosofia de Projeto e Normas</h3>
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-bold text-amber-700 flex items-center gap-2 mb-2"><TrendingUp size={18}/> Conceito "Flytap"</h4>
@@ -173,9 +174,9 @@ export const TechnicalSection = () => {
                     </div>
                   </div>
                 </div>
-                <div className="bg-slate-900 text-white p-8 rounded-xl shadow-2xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 opacity-10"><Award size={120} /></div>
-                  <h4 className="text-xl font-serif font-bold mb-6 border-b border-amber-500 pb-2 inline-block">O "Padrão Celso"</h4>
+                <div className="bg-slate-900 text-white p-4 sm:p-6 md:p-8 rounded-xl shadow-2xl relative overflow-hidden mt-6 md:mt-0">
+                  <div className="absolute top-0 right-0 p-2 sm:p-4 opacity-10"><Award size={80} className="sm:w-[120px] sm:h-[120px]" /></div>
+                  <h4 className="text-lg sm:text-xl font-serif font-bold mb-4 sm:mb-6 border-b border-amber-500 pb-2 inline-block">O "Padrão Celso"</h4>
                   <ul className="space-y-6 relative z-10">
                     <li className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white shrink-0">1</div>

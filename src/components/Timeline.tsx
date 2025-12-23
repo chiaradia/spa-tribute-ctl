@@ -11,37 +11,38 @@ interface TimelineItemProps {
 const TimelineItem = ({ year, title, desc, side }: TimelineItemProps) => (
   <motion.div
     variants={fadeInUp}
-    className={`flex items-center justify-between w-full mb-8 ${side === 'left' ? 'flex-row-reverse' : ''}`}
+    className={`flex items-center justify-between w-full mb-6 sm:mb-8 md:flex-row ${side === 'left' ? 'md:flex-row-reverse' : ''} flex-col md:flex-row`}
   >
-    <div className="w-5/12"></div>
-    <div className="z-20 flex items-center justify-center w-8 h-8 bg-amber-600 rounded-full shadow-lg border-4 border-white">
-      <div className="w-2 h-2 bg-white rounded-full"></div>
+    <div className="hidden md:block w-5/12"></div>
+    <div className="z-20 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 bg-amber-600 rounded-full shadow-lg border-2 sm:border-4 border-white mb-4 md:mb-0">
+      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full"></div>
     </div>
-    <div className={`w-5/12 p-6 bg-white rounded-lg shadow-md border-l-4 border-slate-200 ${side === 'left' ? 'text-right' : 'text-left'}`}>
-      <span className="text-amber-600 font-bold text-sm tracking-wider">{year}</span>
-      <h3 className="text-lg font-bold text-slate-800 mb-2">{title}</h3>
-      <p className="text-slate-600 text-sm">{desc}</p>
+    <div className={`w-full md:w-5/12 p-4 sm:p-6 bg-white rounded-lg shadow-md border-l-4 border-slate-200 text-left`}>
+      <span className="text-amber-600 font-bold text-xs sm:text-sm tracking-wider">{year}</span>
+      <h3 className="text-base sm:text-lg font-bold text-slate-800 mb-1 sm:mb-2">{title}</h3>
+      <p className="text-slate-600 text-xs sm:text-sm">{desc}</p>
     </div>
+    <div className="hidden md:block w-5/12"></div>
   </motion.div>
 );
 
 export const Timeline = () => (
-  <section className="py-24 bg-slate-50 overflow-hidden">
-    <div className="container mx-auto px-6 relative">
+  <section className="py-12 sm:py-16 md:py-24 bg-slate-50 overflow-hidden w-full">
+    <div className="container mx-auto px-4 sm:px-6 relative max-w-7xl w-full">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        className="text-center mb-16"
+        className="text-center mb-8 sm:mb-12 md:mb-16"
       >
-        <h2 className="text-4xl font-serif font-bold text-slate-900 mb-2">Linha do Tempo</h2>
-        <p className="text-slate-500">Uma jornada dedicada à engenharia elétrica</p>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-2 px-2">Linha do Tempo</h2>
+        <p className="text-sm sm:text-base text-slate-500 px-2">Uma jornada dedicada à engenharia elétrica</p>
       </motion.div>
 
       <div className="relative wrap overflow-hidden h-full max-w-5xl mx-auto">
-        {/* Vertical Line */}
-        <div className="absolute border-opacity-20 border-slate-900 h-full border-l-2 left-1/2" style={{ transform: 'translateX(-50%)' }}></div>
+        {/* Vertical Line - Hidden on mobile */}
+        <div className="hidden md:block absolute border-opacity-20 border-slate-900 h-full border-l-2 left-1/2" style={{ transform: 'translateX(-50%)' }}></div>
 
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
           <TimelineItem

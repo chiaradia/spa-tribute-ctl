@@ -3,19 +3,19 @@ import { Network } from 'lucide-react';
 import { fadeInUp } from '../constants/animations';
 
 export const About = () => (
-  <section className="py-24 bg-white text-slate-800">
-    <div className="container mx-auto px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+  <section className="py-12 sm:py-16 md:py-24 bg-white text-slate-800 w-full overflow-x-hidden">
+    <div className="container mx-auto px-4 sm:px-6 max-w-7xl w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8 text-slate-900 border-l-4 border-amber-600 pl-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mb-6 sm:mb-8 text-slate-900 border-l-4 border-amber-600 pl-4 sm:pl-6">
             Formação e Raízes Técnicas
           </h2>
-          <div className="space-y-6 text-lg leading-relaxed text-slate-600 font-light text-justify">
+          <div className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed text-slate-600 font-light sm:text-justify">
             <p>
               No complexo ecossistema da infraestrutura energética brasileira, certas figuras se destacam não apenas pela competência técnica, mas pela habilidade de transitar entre o "chão de fábrica" das subestações e as mesas de decisão das entidades de classe. O engenheiro eletricista <strong>Celso Ternes Leal</strong> é um desses nomes. Com uma carreira que se confunde com a própria modernização da rede elétrica de Santa Catarina, Leal consolidou-se como uma referência em sistemas de distribuição e um defensor incansável da valorização profissional.
             </p>
@@ -42,7 +42,7 @@ export const About = () => (
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="relative h-full min-h-[500px] bg-slate-100 rounded-lg overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
+          className="relative h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] bg-slate-100 rounded-lg overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full mt-8 lg:mt-0"
         >
           {/* Abstract Engineering Placeholder Image */}
           <div className="absolute inset-0 bg-slate-200 flex flex-col items-center justify-center p-8 text-slate-400">

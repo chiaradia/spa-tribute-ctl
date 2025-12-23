@@ -9,7 +9,7 @@ import {
 
 export default function App() {
   return (
-    <div className="font-sans antialiased text-slate-900 bg-white selection:bg-amber-100 selection:text-amber-900">
+    <div className="font-sans antialiased text-slate-900 bg-white selection:bg-amber-100 selection:text-amber-900 w-full overflow-x-hidden">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
        

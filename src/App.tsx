@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  Hero,
+  About,
+  TechnicalSection,
+  LeadershipSection,
+  Timeline,
+  Footer
+} from './components';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="font-sans antialiased text-slate-900 bg-white selection:bg-amber-100 selection:text-amber-900">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+       
+        body {
+          font-family: 'Inter', sans-serif;
+        }
+       
+        h1, h2, h3, h4, blockquote {
+          font-family: 'Playfair Display', serif;
+        }
+      `}</style>
+     
+      <Hero />
+      <About />
+      <TechnicalSection />
+      <LeadershipSection />
+      <Timeline />
+      <Footer />
+    </div>
+  );
 }
-
-export default App
